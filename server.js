@@ -1,9 +1,9 @@
-#!/usr/bin/env node
 var prerender = require('./lib');
 
 var server = prerender({
     workers: process.env.PRERENDER_NUM_WORKERS,
-    iterations: process.env.PRERENDER_NUM_ITERATIONS
+    iterations: 10,
+    waitAfterLastRequest: 1000
 });
 
 
@@ -18,3 +18,8 @@ server.use(prerender.httpHeaders());
 // server.use(prerender.s3HtmlCache());
 
 server.start();
+
+
+
+
+
